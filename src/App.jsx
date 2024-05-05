@@ -11,8 +11,6 @@ import NotFound from './components/NotFound';
 
 function App() {
   const { jobs, loading, offset, hasMore, filteredJobs, filterApplied } = useSelector(state => state);
-  // console.log("filterApplied: ", filterApplied);
-  // console.log("filteredJobs: ", filteredJobs);
 
   const dispatch = useDispatch();
 

@@ -62,7 +62,7 @@ const Filter = () => {
         dispatch(applyFilters({ ...filters, [key]: value }));
     };
     return (
-        <Box display={"flex"} flexWrap={"wrap"} justifyContent={"start"} columnGap={"40px"} marginBottom={"50px"}>
+        <Box display={"flex"} flexWrap={"wrap"} justifyContent={"start"} columnGap={"40px"} rowGap={"8px"} marginBottom={"50px"}>
             <Select
                 options={options}
                 isMulti
