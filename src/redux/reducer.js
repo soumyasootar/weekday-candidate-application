@@ -8,7 +8,7 @@ import {
     LOAD_MORE_JOBS_FAILURE,
 } from './actionType';
 
-import data from "../../data.json"
+import data from "../resources/data.json"
 
 
 const initialState = {
