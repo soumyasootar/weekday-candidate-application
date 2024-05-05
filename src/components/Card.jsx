@@ -9,7 +9,7 @@ const Card = ({ job }) => {
     return (
         <Stack spacing={2} border={"1px solid #ececec"} boxShadow={"rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"} borderRadius={"20px"} padding={4} sx={{
             '&:hover': {
-                transform: 'scale(1.0125)',
+                transform: 'scale(1.03)',
                 transition: 'transform 0.2s ease-in-out',
             },
         }}>
