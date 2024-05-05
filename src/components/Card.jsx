@@ -30,8 +30,8 @@ const Card = ({ job }) => {
             />
             <Typography color={"#858585"}>Minimum Experience</Typography>
             <Typography sx={{ marginTop: "-1px !important" }}>{job.minExp == null ? (job.maxExp == null ? 10 : job.maxExp) : 3} years</Typography>
-            <Button sx={{ bgcolor: "#54efc3", color: "black", fontWeight: "bold", textTransform: "none", borderRadius: "8px", padding: "14px 20px", fontSize: "large" }}>⚡Easy Apply</Button>
-            <Button sx={{ bgcolor: "#4943da", color: "white", textTransform: "none", borderRadius: "8px", padding: "14px 20px", fontSize: "" }}>
+            <Button sx={{ bgcolor: "#54efc3", color: "black", fontWeight: "bold", textTransform: "none", borderRadius: "8px", padding: "9px 20px", fontSize: "large" }}>⚡Easy Apply</Button>
+            <Button sx={{ bgcolor: "#4943da", color: "white", textTransform: "none", borderRadius: "8px", padding: "12px 20px", fontSize: "" }}>
                 <Stack direction={"row"} spacing={1}>
 
                     <img
@@ -51,7 +51,6 @@ const Card = ({ job }) => {
                     />
                     <Typography>
                         Unlock Referral asks
-
                     </Typography>
                 </Stack>
             </Button>

@@ -2,6 +2,9 @@
  
 ## Vite App Local Setup Guide and Frontend Interview Assignment: 
 
+## Live Link
+- https://weekday-candidate-application.vercel.app/
+
 ### Overview
 This document serves as a guide for setting up and running a Vite app locally and provides instructions for completing the Frontend Interview Assignment: Candidate Application Platform. The assignment entails creating a candidate application platform allowing users to view job listings, apply filters, and implement infinite scroll for seamless browsing. The platform should have a user-friendly interface and meet specific requirements outlined in the assignment brief.
 
@@ -43,18 +46,16 @@ bash
 ``` git clone <repository_url>```
 
 - Navigate to Project Directory: Move into the project directory:
-``` powershell cd <project_directory>   ```
-Install Dependencies: Install the necessary dependencies for the project. Since it's a Vite app with React, you'll likely use npm or yarn:
-bash
-Copy code
-npm install
-# or
-yarn install
-Run the Development Server: Start the development server to view the project locally. Use the following command:
-bash
-Copy code
-npm run dev
-# or
-yarn dev
-Open in Browser: Once the development server is running, open your web browser and navigate to the specified URL (typically http://localhost:3000) to view the project.
-Start Implementing: With the project set up and running, start implementing the features as outlined in the assignment brief. Follow the provided requirements, use the specified technology stack, and refer to the UI designs and API endpoint provided.
+```cd ./weekday-candidate-application```
+- Install Dependencies: Install the necessary dependencies for the project. Since it's a Vite app with React, you'll likely use npm or yarn:
+```npm install or yarn install ```
+- Run the Development Server: Start the development server to view the project locally. Use the following command:
+``` npm run dev or yarn dev```
+- Open in Browser: Once the development server is running, open your web browser and navigate to the specified URL (typically http://localhost:3000) to view the project.
+- Start Implementing: With the project set up and running, start implementing the features as outlined in the assignment brief. Follow the provided requirements, use the specified technology stack, and refer to the UI designs and API endpoint provided.
+
+
+#### -------- X---------
+
+
+

@@ -37,10 +37,10 @@ function App() {
 
   return (
     <>
-      <Container maxWidth="lg" sx={{ marginTop: "50px" }}>
+      <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
         <Filter />
         {filterApplied && filteredJobs.length==0 ? <NotFound/> : <></>}
-        <Grid container spacing={3} key={"lksdnflknsflnrlfnerlf122"}>
+        <Grid container spacing={3} key={"lksdnflknsflnrlfnerlf122"} gridAutoRows={"400px"}>
           {jobs.length == 0 ?
             <Skeleton />
             :
