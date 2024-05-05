@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Stack, TextField } from '@mui/material';
+import { Box, Grid, Stack, TextField } from '@mui/material';
 import Select from 'react-select';
 import { useDispatch } from 'react-redux';
 import { applyFilters } from '../redux/action';
@@ -62,82 +62,91 @@ const Filter = () => {
         dispatch(applyFilters({ ...filters, [key]: value }));
     };
     return (
-        <Box display={"flex"} flexWrap={"wrap"} justifyContent={"start"} columnGap={"40px"} rowGap={"8px"} marginBottom={"50px"}>
-            <Select
-                options={options}
-                isMulti
-                placeholder="Min Experience"
-                menuPortalTarget={document.body}
-                
-                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                onChange={(selectedOption) => {
-                    let minArr = selectedOption.map(e => e.value)
-                    minArr.sort((a, b) => a - b)
-                    handleFilterChange('minExperience', minArr[0])
-                }}
-            />
-            <Select
-                options={companyNames.map(name => ({ value: name, label: name }))}
-                isMulti
-                placeholder="Company Name"
-                menuPortalTarget={document.body}
-                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                onChange={(selectedOption) => {
-                    let jobs = selectedOption.map(e => e.value)
-                    handleFilterChange('companyNames', jobs)
-                }}
-
-            />
-            <Select
-                options={locations}
-                isMulti
-                placeholder="Location"
-                menuPortalTarget={document.body}
-                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                onChange={(selectedOption) => {
-                    let loc = selectedOption.map(e => e.value)
-                    handleFilterChange('locations', loc)
-                }}
-
-            />
-            <Select
-                options={[{ value: 'remote', label: 'Remote' }, { value: 'onsite', label: 'Onsite' }]}
-                placeholder="Remote/On-site"
-                menuPortalTarget={document.body}
-                isMulti
-                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                onChange={(selectedOption) => {
-                    let rem = selectedOption.map(e => e.value)
-                    handleFilterChange('remoteOnsite', rem)
-                }}
-            />
-            <Select
-                options={roles}
-                isMulti
-                placeholder="Role"
-                menuPortalTarget={document.body}
-                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                onChange={(selectedOption) => {
-                    let roles = selectedOption.map(e => e.value)
-                    console.log("roles: ", roles);
-                    handleFilterChange('roles', roles)
-                }}
-            />
-            <Select
-                options={salaries}
-                isMulti
-                placeholder="Min Base Pay"
-                menuPortalTarget={document.body}
-                styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
-                onChange={(selectedOption) => {
-                    let minArr = selectedOption.map(e => e.value)
-                    minArr.sort((a, b) => a - b)
-                    handleFilterChange('minBasePay', minArr[0])
-                }}
-            // onChange={(selectedOption) => handleFilterChange('minBasePay', selectedOption)}
-
-            />
-        </Box>
+        <Grid container spacing={2} marginBottom="50px" gridRows={"100px"} >
+            <Grid item xs={12} md={6} lg={2}>
+                <Select
+                    options={options}
+                    isMulti
+                    placeholder="Min Experience"
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+                    onChange={(selectedOption) => {
+                        let minArr = selectedOption.map((e) => e.value);
+                        minArr.sort((a, b) => a - b);
+                        handleFilterChange('minExperience', minArr[0]);
+                    }}
+                />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+                <Select
+                    options={companyNames.map((name) => ({ value: name, label: name }))}
+                    isMulti
+                    placeholder="Company"
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+                    onChange={(selectedOption) => {
+                        let jobs = selectedOption.map((e) => e.value);
+                        handleFilterChange('companyNames', jobs);
+                    }}
+                />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+                <Select
+                    options={locations}
+                    isMulti
+                    placeholder="Location"
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+                    onChange={(selectedOption) => {
+                        let loc = selectedOption.map((e) => e.value);
+                        handleFilterChange('locations', loc);
+                    }}
+                />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+                <Select
+                    options={[
+                        { value: 'remote', label: 'Remote' },
+                        { value: 'onsite', label: 'Onsite' },
+                    ]}
+                    isMulti
+                    placeholder="Remote/On-site"
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+                    onChange={(selectedOption) => {
+                        let rem = selectedOption.map((e) => e.value);
+                        handleFilterChange('remoteOnsite', rem);
+                    }}
+                />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+                <Select
+                    options={roles}
+                    isMulti
+                    placeholder="Role"
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+                    onChange={(selectedOption) => {
+                        let roles = selectedOption.map((e) => e.value);
+                        handleFilterChange('roles', roles);
+                    }}
+                />
+            </Grid>
+            <Grid item xs={12} md={6} lg={2}>
+                <Select
+                    options={salaries}
+                    isMulti
+                    placeholder="Min Base Pay"
+                    menuPortalTarget={document.body}
+                    styles={{ menuPortal: (base) => ({ ...base, zIndex: 9999 }) }}
+                    onChange={(selectedOption) => {
+                        let minArr = selectedOption.map((e) => e.value);
+                        minArr.sort((a, b) => a - b);
+                        handleFilterChange('minExperience', minArr[0]);
+                    }}
+                />
+            </Grid>
+        </Grid>
     );
 };
 
