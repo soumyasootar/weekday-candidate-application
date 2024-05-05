@@ -6,9 +6,9 @@ import Stack from '@mui/material/Stack';
 function SkeletonComp() {
     const arr = [1, 1, 1, 1, 1, 1]
     return (
-        <Grid container spacing={4} key={"random value"} width={"100%"}>
+        <Grid container spacing={4} key={125+Math.random()} width={"100%"}>
             {arr.map(e => {
-                return <Stack spacing={1}>
+                return <Stack spacing={1} key={Math.random()}>
                     <Skeleton variant="text" sx={{ fontSize: '1rem' }} />
                     <Skeleton variant="circular" width={40} height={40} />
                     <Skeleton variant="rectangular" width={210} height={60} />

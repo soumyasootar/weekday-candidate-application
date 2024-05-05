@@ -1,5 +1,5 @@
 import { Box, Button, Stack, Typography } from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import ppPic from "../resources/image.png"
 import TruncatedText from './TruncatedText'
 
@@ -17,18 +17,29 @@ import TruncatedText from './TruncatedText'
 //     "companyName": "Fitstok",
 //     "logoUrl": "https://logo.clearbit.com/lg.com"
 // }
+// const daysAgo = Math.floor(Math.random() * 10) + 1;
 
-const Card = ({job}) => {
+const Card = ({ job }) => {
     // console.log("job: ", job);
-    const daysAgo = Math.floor(Math.random() * 10) + 1;
+    const [randomNum, setRandomNum] = useState(Math.floor(Math.random() * 11)+1); // Initial random number (0-99)
+
+    // Optionally use crypto.subtle.getRandomValues() for stronger randomness (if available)
+    // useEffect(() => {
+    //     if (window.crypto && window.crypto.subtle) {
+    //         window.crypto.subtle.getRandomValues(new Uint32Array(1))
+    //             .then(array => setRandomNum(array[0]))
+    //             .catch(error => console.error('Error generating random number:', error));
+    //     }
+    // }, []);
+
     return (
         <Stack spacing={2} border={"1px solid #ececec"} boxShadow={"rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"} borderRadius={"20px"} padding={4} >
-            <Box borderRadius={"13px"} padding={"5px 10px"} width={"fit-content"} fontSize={"small"} border={"1px solid #e4e4e4"} boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"} >⏳ Posted {daysAgo} {daysAgo === 1 ? 'day' : 'days'} ago</Box>
+            <Box borderRadius={"13px"} padding={"5px 10px"} width={"fit-content"} fontSize={"small"} border={"1px solid #e4e4e4"} boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"} >⏳ Posted {randomNum} {randomNum === 1 ? 'day' : 'days'} ago</Box>
             <Stack direction={"row"} spacing={2}>
                 <img src={job.logoUrl} alt={job.companyName + " logo"} width="40px" height={"50px"} style={{ objectFit: "contain" }} />
                 <Stack spacing={1} >
                     <Typography color={"#a7a7a7"} fontWeight={600} letterSpacing={3}>{job.companyName}</Typography>
-                    <Typography fontSize={"large"}>{job.jobRole[0].toUpperCase() + job.jobRole.slice(1)}</Typography>
+                    <Typography fontSize={"large"}>{job.jobRole[0].toUpperCase() + job.jobRole.slice(1) + " Developer"}</Typography>
                     <Typography fontSize={"small"}>{job.location[0].toUpperCase() + job.location.slice(1)}</Typography>
                 </Stack>
             </Stack>

@@ -11,28 +11,3 @@ const NotFound = () => {
 }
 
 export default NotFound
-// {loading || jobs.length == 0 ? 
-//     <NotFound/>
-//    :
-//    filteredJobs.length == 0 ? 
-//    (jobs.map((job, index) => {
-//     if (jobs.length === index + 1) {
-//       return (
-//         <Grid item key={job.id} xs={12} sm={6} md={4} ref={lastJobCardRef}>
-//           <Card job={job} />
-//         </Grid>
-//       );
-//     } else {
-//       return (
-//         <Grid item key={job.id} xs={12} sm={6} md={4}>
-//           <Card job={job} />
-//         </Grid>
-//       );
-//     }
-//   })) 
-//   : 
-//   (filteredJobs.map((job, index) => {
-//     return <Grid item key={job.id} xs={12} sm={6} md={4} ref={lastJobCardRef}>
-//       <Card job={job} />
-//     </Grid>
-//   }))}
