@@ -1,39 +1,18 @@
 import { Box, Button, Stack, Typography } from '@mui/material'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import ppPic from "../resources/image.png"
 import TruncatedText from './TruncatedText'
 
-// const job = {
-//     "jdUid": "cfff35ba-053c-11ef-83d3-06301d0a7178-92012",
-//     "jdLink": "https://weekday.works",
-//     "jobDetailsFromCompany": "This is a sample job and you must have displayed it to understand that its not just some random lorem ipsum text but something which was manually written. Oh well, if random text is what you were looking for then here it is: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages and now in this assignment.",
-//     "maxJdSalary": 103,
-//     "minJdSalary": 100,
-//     "salaryCurrencyCode": "USD",
-//     "location": "mumbai",
-//     "minExp": 3,
-//     "maxExp": null,
-//     "jobRole": "frontend",
-//     "companyName": "Fitstok",
-//     "logoUrl": "https://logo.clearbit.com/lg.com"
-// }
-// const daysAgo = Math.floor(Math.random() * 10) + 1;
-
 const Card = ({ job }) => {
     // console.log("job: ", job);
-    const [randomNum, setRandomNum] = useState(Math.floor(Math.random() * 11)+1); // Initial random number (0-99)
-
-    // Optionally use crypto.subtle.getRandomValues() for stronger randomness (if available)
-    // useEffect(() => {
-    //     if (window.crypto && window.crypto.subtle) {
-    //         window.crypto.subtle.getRandomValues(new Uint32Array(1))
-    //             .then(array => setRandomNum(array[0]))
-    //             .catch(error => console.error('Error generating random number:', error));
-    //     }
-    // }, []);
-
+    const [randomNum, setRandomNum] = useState(Math.floor(Math.random() * 11) + 1);
     return (
-        <Stack spacing={2} border={"1px solid #ececec"} boxShadow={"rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"} borderRadius={"20px"} padding={4} >
+        <Stack spacing={2} border={"1px solid #ececec"} boxShadow={"rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"} borderRadius={"20px"} padding={4} sx={{
+            '&:hover': {
+                transform: 'scale(1.0125)',
+                transition: 'transform 0.2s ease-in-out',
+            },
+        }}>
             <Box borderRadius={"13px"} padding={"5px 10px"} width={"fit-content"} fontSize={"small"} border={"1px solid #e4e4e4"} boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"} >⏳ Posted {randomNum} {randomNum === 1 ? 'day' : 'days'} ago</Box>
             <Stack direction={"row"} spacing={2}>
                 <img src={job.logoUrl} alt={job.companyName + " logo"} width="40px" height={"50px"} style={{ objectFit: "contain" }} />
@@ -43,14 +22,14 @@ const Card = ({ job }) => {
                     <Typography fontSize={"small"}>{job.location[0].toUpperCase() + job.location.slice(1)}</Typography>
                 </Stack>
             </Stack>
-            <Typography color={"#313841"} fontWeight={600}>Estimated Salary : ${job.minJdSalary} - {job.maxJdSalary}K ✅</Typography>
+            <Typography color={"#313841"} fontWeight={600}>Estimated Salary : ${(job.minJdSalary == null ? 20 : job.minJdSalary) + " - "} {job.maxJdSalary}K ✅</Typography>
             <Typography fontWeight={"bold"} fontSize={"large"}>About Company:</Typography>
             <TruncatedText
                 text={job.jobDetailsFromCompany}
                 maxLength={300} // Adjust the maximum length as needed
             />
             <Typography color={"#858585"}>Minimum Experience</Typography>
-            <Typography sx={{ marginTop: "-1px !important" }}>{job.minExp} years</Typography>
+            <Typography sx={{ marginTop: "-1px !important" }}>{job.minExp == null ? (job.maxExp == null ? 10 : job.maxExp) : 3} years</Typography>
             <Button sx={{ bgcolor: "#54efc3", color: "black", fontWeight: "bold", textTransform: "none", borderRadius: "8px", padding: "14px 20px", fontSize: "large" }}>⚡Easy Apply</Button>
             <Button sx={{ bgcolor: "#4943da", color: "white", textTransform: "none", borderRadius: "8px", padding: "14px 20px", fontSize: "" }}>
                 <Stack direction={"row"} spacing={1}>

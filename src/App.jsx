@@ -17,8 +17,10 @@ function App() {
   // Infinite Scroll 
   const observer = useRef();
   const lastJobCardRef = useCallback(node => {
+    console.log("node: ", node);
     if (loading) return;
-    if (observer.current) observer.current.disconnect();
+
+    if (observer.current && !filterApplied) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
         if (!filterApplied){
@@ -52,14 +54,14 @@ function App() {
                   );
                 } else {
                   return (
-                    <Grid item key={844 + Math.random()} xs={12} sm={6} md={4}>
+                    <Grid item key={844 + Math.random()} xs={12} sm={6} md={4} ref={lastJobCardRef}>
                       <Card job={job} />
                     </Grid>
                   );
                 }
               }))
               : (filteredJobs.map((job, index) => {
-                return <Grid item key={546 + Math.random()} xs={12} sm={6} md={4} ref={lastJobCardRef}>
+                return <Grid item key={546 + Math.random()} xs={12} sm={6} md={4}>
                   <Card job={job} />
                 </Grid>
               }))}

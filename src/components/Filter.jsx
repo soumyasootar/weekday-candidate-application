@@ -68,6 +68,7 @@ const Filter = () => {
                 isMulti
                 placeholder="Min Experience"
                 menuPortalTarget={document.body}
+                
                 styles={{ menuPortal: base => ({ ...base, zIndex: 9999 }) }}
                 onChange={(selectedOption) => {
                     let minArr = selectedOption.map(e => e.value)
