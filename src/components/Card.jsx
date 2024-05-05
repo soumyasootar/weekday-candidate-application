@@ -19,9 +19,10 @@ const job = {
 }
 
 const Card = () => {
+    const daysAgo = Math.floor(Math.random() * 10) + 1;
     return (
-        <Stack spacing={2} border={"1px solid #ececec"} boxShadow={"rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"} borderRadius={"10px"} padding={4} >
-            <Box borderRadius={"13px"} padding={"5px 10px"} width={"fit-content"} fontSize={"small"} border={"1px solid #e4e4e4"} boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"} >⏳ Posted 10 days ago</Box>
+        <Stack spacing={2} border={"1px solid #ececec"} boxShadow={"rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset"} borderRadius={"20px"} padding={4} >
+            <Box borderRadius={"13px"} padding={"5px 10px"} width={"fit-content"} fontSize={"small"} border={"1px solid #e4e4e4"} boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"} >⏳ Posted {daysAgo} {daysAgo === 1 ? 'day' : 'days'} ago</Box>
             <Stack direction={"row"} spacing={2}>
                 <img src={job.logoUrl} alt={job.companyName + " logo"} width="40px" height={"50px"} style={{ objectFit: "contain" }} />
                 <Stack spacing={1} >

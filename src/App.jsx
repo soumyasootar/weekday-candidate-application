@@ -6,9 +6,9 @@ import Card from './components/Card'
 function App() {
   return (
     <>
-    <Container maxWidth="sm" sx={{marginTop:"50px"}} >
-      <Card/>
-    </Container>
+      <Container maxWidth="sm" sx={{ marginTop: "50px" }} >
+        <Card />
+      </Container>
     </>
   )
 }
