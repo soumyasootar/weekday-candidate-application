@@ -35,10 +35,9 @@ const reducer = (state = initialState, action) => {
             return { ...state, loading: false, error: action.error };
         case APPLY_FILTERS:
             const { minExperience, companyNames, locations, remoteOnsite, roles, minBasePay } = action.payload;
-            // if not Filter is applied 
+            // If no Filter is applied 
             if (minExperience == null && companyNames == null && locations == null && remoteOnsite == null && roles == null && minBasePay == null)
                 return { ...state, filters: action.payload, filteredJobs: [] };
-
             //filter the jobs 
             const filteredJobs = state.allJobs.filter(job => {
                 return (!minExperience || job.minExp >= minExperience) &&
@@ -48,7 +47,7 @@ const reducer = (state = initialState, action) => {
                     (!roles || roles.includes(job.jobRole)) &&
                     (!minBasePay || job.minJdSalary >= minBasePay || job.maxJdSalary >= minBasePay);
             });
-            console.log("filteredJobs: ", filteredJobs);
+            // console.log("filteredJobs: ", filteredJobs);
             return { ...state, filters: action.payload, filteredJobs };
         case LOAD_MORE_JOBS_SUCCESS:
             return {
