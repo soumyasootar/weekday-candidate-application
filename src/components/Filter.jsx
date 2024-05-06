@@ -57,10 +57,12 @@ const Filter = () => {
         minBasePay: null
     });
 
+    // Filters to redux
     const handleFilterChange = (key, value) => {
         setFilters({ ...filters, [key]: value });
         dispatch(applyFilters({ ...filters, [key]: value }));
     };
+
     return (
         <Grid container spacing={2} marginBottom="50px" gridRows={"100px"} >
             <Grid item xs={12} md={6} lg={2}>

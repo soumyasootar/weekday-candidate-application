@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box, CircularProgress, Container, Grid, Stack, Typography } from '@mui/material';
 import Card from './components/Card';
 import { fetchJobs, loadMoreJobs } from "./redux/action";
-// import data from "../data.json"
 import Filter from './components/Filter';
 import Skeleton from './components/Skeleton';
 import NotFound from './components/NotFound';
-// console.log("data: ", data);
+
 
 function App() {
+  // Taking Data From Redux 
   const { jobs, loading, offset, hasMore, filteredJobs, filterApplied } = useSelector(state => state);
 
   const dispatch = useDispatch();
@@ -23,7 +23,7 @@ function App() {
     if (observer.current && !filterApplied) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
-        if (!filterApplied){
+        if (!filterApplied) {
           dispatch(loadMoreJobs(offset));
         }
       }
@@ -31,6 +31,7 @@ function App() {
     if (node) observer.current.observe(node);
   }, [loading, hasMore]);
 
+  // To Load With App Mounts 
   useEffect(() => {
     dispatch(fetchJobs());
   }, []);
@@ -38,12 +39,18 @@ function App() {
   return (
     <>
       <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
+        {/* Filter Component  */}
         <Filter />
-        {filterApplied && filteredJobs.length==0 ? <NotFound/> : <></>}
+
+        {/* Search Results  */}
+        {filterApplied && filteredJobs.length == 0 ? <NotFound /> : <></>}
         {filterApplied ? <Box> <Typography variant='h4' marginBottom={5}>Total Jobs : {filteredJobs.length} </Typography> </Box> : <></>}
+
+        {/* Grid to View Card -- will be transferred to one more component */}
         <Grid container spacing={3} key={"random"} gridAutoRows={"400px"}>
+          {/* Conditional Rendering to Show Various Jobs and Filtered Jobs  */}
           {jobs.length == 0 ?
-            <Skeleton />
+            <Skeleton />  // If No Jobs Show Skeleton
             :
             filteredJobs.length == 0 ?
               (jobs.map((job, index) => {
@@ -61,6 +68,7 @@ function App() {
                   );
                 }
               }))
+              //Filtered Jobs 
               : (filteredJobs.map((job, index) => {
                 return <Grid item key={546 + Math.random()} xs={12} sm={6} md={4}>
                   <Card job={job} />

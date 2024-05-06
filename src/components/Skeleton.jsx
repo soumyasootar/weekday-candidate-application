@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
+// Initial Loading Cards 
 function SkeletonComp() {
     const arr = [1, 1, 1, 1, 1, 1]
     return (
