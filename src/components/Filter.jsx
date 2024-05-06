@@ -142,7 +142,7 @@ const Filter = () => {
                     onChange={(selectedOption) => {
                         let minArr = selectedOption.map((e) => e.value);
                         minArr.sort((a, b) => a - b);
-                        handleFilterChange('minExperience', minArr[0]);
+                        handleFilterChange('minBasePay', minArr[0]);
                     }}
                 />
             </Grid>

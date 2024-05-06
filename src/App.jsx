@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CircularProgress, Container, Grid, Stack, Typography } from '@mui/material';
+import { Box, CircularProgress, Container, Grid, Stack, Typography } from '@mui/material';
 import Card from './components/Card';
 import { fetchJobs, loadMoreJobs } from "./redux/action";
 // import data from "../data.json"
@@ -17,7 +17,7 @@ function App() {
   // Infinite Scroll 
   const observer = useRef();
   const lastJobCardRef = useCallback(node => {
-    console.log("node: ", node);
+    // console.log("node: ", node);
     if (loading) return;
 
     if (observer.current && !filterApplied) observer.current.disconnect();
@@ -40,7 +40,8 @@ function App() {
       <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
         <Filter />
         {filterApplied && filteredJobs.length==0 ? <NotFound/> : <></>}
-        <Grid container spacing={3} key={"lksdnflknsflnrlfnerlf122"} gridAutoRows={"400px"}>
+        {filterApplied ? <Box> <Typography variant='h4' marginBottom={5}>Total Jobs : {filteredJobs.length} </Typography> </Box> : <></>}
+        <Grid container spacing={3} key={"random"} gridAutoRows={"400px"}>
           {jobs.length == 0 ?
             <Skeleton />
             :
