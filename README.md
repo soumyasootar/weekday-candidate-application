@@ -1,9 +1,18 @@
 # Candidate Application Platform      
  
-## Vite App Local Setup Guide and Frontend Interview Assignment: 
+## Demo Video
+https://www.loom.com/share/220cbbbebc1247a49df2c154a1dc0e34?sid=fbb6499f-96df-4fca-8d8f-a481de57aa6b
 
 ## Live Link
-- https://weekday-candidate-application.vercel.app/
+https://weekday-candidate-application.vercel.app/
+
+## Responsiveness
+### Laptop
+- <img src="./src/resources/laptop.png" />
+### Tablet
+- <img src="./src/resources/tab.png" />
+### Mobile
+- <img src="./src/resources/mobile.png" />
 
 ### Overview
 This document serves as a guide for setting up and running a Vite app locally and provides instructions for completing the Frontend Interview Assignment: Candidate Application Platform. The assignment entails creating a candidate application platform allowing users to view job listings, apply filters, and implement infinite scroll for seamless browsing. The platform should have a user-friendly interface and meet specific requirements outlined in the assignment brief.
