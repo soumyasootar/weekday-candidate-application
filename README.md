@@ -3,8 +3,12 @@
 ## Demo Video
 https://www.loom.com/share/220cbbbebc1247a49df2c154a1dc0e34?sid=fbb6499f-96df-4fca-8d8f-a481de57aa6b
 
+
 ## Live Link
 https://weekday-candidate-application.vercel.app/
+
+### DOC : 
+https://docs.google.com/document/d/1Stycanj4VKzi_nIClxuobuokkXD9MzGZfpAp0d4UGXg/edit#heading=h.k7sptlypblmb
 
 ## Responsiveness
 ### Laptop
