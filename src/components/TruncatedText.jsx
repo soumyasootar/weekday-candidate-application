@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Stack, Box, Typography, Button, autocompleteClasses } from "@mui/material";
 
+
+// To Show View More and Collapse in Job Cards
 const TruncatedText = ({ text, maxLength }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
